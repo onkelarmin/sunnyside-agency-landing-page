@@ -1,0 +1,84 @@
+---
+// Library imports
+
+import { Icon } from "astro-icon/components"
+---
+
+<nav class="primary-nav">
+  <span id="primary-nav__label" hidden>Navigation</span>
+  <button
+    id="btnOpen"
+    class="primary-nav__open"
+    aria-expanded="false"
+    aria-labelledby="primary-nav__label"
+  >
+    <Icon name="icon-hamburger" width={24} height={16} />
+  </button>
+  <div
+    class="primary-nav__menu"
+    role="dialog"
+    aria-labelledby="primary-nav__label"
+  >
+    <button id="btnClose" class="primary-nav__close" aria-label="Close">
+      <Icon name="icon-close" width={20} height={20} />
+    </button>
+    <ul class="primary-nav__list" data-open="false">
+      <NavItems />
+    </ul>
+  </div>
+</nav>
+
+<style lang="scss">
+  @use "../sass/abstracts" as *;
+
+  .primary-nav {
+    &__list {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    button {
+      display: grid;
+      place-items: center;
+      background: none;
+      border: none;
+
+      @include mq(medium) {
+        display: none;
+      }
+    }
+
+    &__open[aria-expanded="true"] + .primary-nav__menu {
+      translate: 0;
+    }
+
+    &__close {
+      display: block;
+      margin-inline-start: auto;
+    }
+  }
+
+  // Mobile
+  @include mq(medium, max) {
+    .primary-nav {
+      &__menu {
+        position: fixed;
+        inset: 0;
+        background-color: $color-neutral-1000;
+        padding: 2.5rem $container-min-margin-inline-small-screens;
+        translate: 100vw 0;
+        transition: translate 0.5s ease-in-out;
+      }
+
+      &__list {
+        flex-direction: column;
+        gap: 1.5rem;
+        font-family: $font-family-accent;
+        font-size: $font-size-600;
+        text-transform: uppercase;
+        padding-top: 8rem;
+      }
+    }
+  }
+</style>

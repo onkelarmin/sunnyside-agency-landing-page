@@ -1,0 +1,69 @@
+// global color tokens
+$-clr-white: hsl(0 0% 100%);
+$-clr-gray-300: hsl(210 4% 67%); // Testimonial title + role
+$-clr-gray-400: hsl(232 10% 55%);
+$-clr-gray-500: hsl(213 9% 39%); // Testimonial body
+$-clr-gray-900: hsl(212 27% 19%);
+
+$-clr-red-400: hsl(0 75% 60%);
+
+$-clr-yellow-400: hsl(51 100% 49%);
+
+$-clr-blue-400: hsl(198 62% 26%); // Photography Body
+$-clr-blue-600: hsl(197 84% 13%); // Photography Heading
+
+$-clr-green-200: hsl(168 44% 70%); // Footer BG
+$-clr-green-400: hsl(166 30% 35%); // Graphic Body
+$-clr-green-500: hsl(168 34% 41%); // Footer Links
+$-clr-green-600: hsl(168 45% 32%); // Footer Heading + Logo
+$-clr-green-700: hsl(167 40% 24%); // Graphic Heading
+
+
+
+$light: (
+  "neutral": (
+    "000": $-clr-white,
+    "300": $-clr-gray-300,
+    "400": $-clr-gray-400,
+    "500": $-clr-gray-500,
+    "900": $-clr-gray-900,
+ ),
+  "green": (
+    "200": $-clr-green-200,
+    "400": $-clr-green-400,
+    "500": $-clr-green-500,
+    "600": $-clr-green-600,
+    "700": $-clr-green-700,
+  ),
+  "blue": ( 
+    "400": $-clr-blue-400,
+    "600": $-clr-blue-600,
+  ),
+  "red": ( 
+    "400": $-clr-red-400,
+  ),
+  "yellow": ( 
+    "400": $-clr-yellow-400,
+  ),
+);
+
+
+// contextual color tokens
+$color-neutral-000: var(--neutral-000);
+$color-neutral-300: var(--neutral-300);
+$color-neutral-400: var(--neutral-400);
+$color-neutral-500: var(--neutral-500);
+$color-neutral-900: var(--neutral-900);
+
+$color-green-200: var(--green-200);
+$color-green-400: var(--green-400);
+$color-green-500: var(--green-500);
+$color-green-600: var(--green-600);
+$color-green-700: var(--green-700);
+
+$color-blue-400: var(--blue-400);
+$color-blue-600: var(--blue-600);
+
+$color-red-400: var(--red-400);
+
+$color-yellow-400: var(--yellow-400);

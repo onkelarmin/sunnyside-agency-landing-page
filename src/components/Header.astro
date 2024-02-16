@@ -1,0 +1,62 @@
+---
+// Library imports
+import { getImage } from "astro:assets"
+import { Icon } from "astro-icon/components"
+
+// Image imports
+import bgMobile from "../images/mobile/header.jpg"
+import bgDesktop from "../images/desktop/header.jpg"
+
+// Component imports
+import PrimaryNavigation from "./PrimaryNavigation.astro"
+
+const bgMobileOpt = await getImage({ src: bgMobile, format: "webp" })
+const bgDesktopOpt = await getImage({ src: bgDesktop, format: "webp" })
+---
+
+<header>
+  <div class="bg">
+    <picture>
+      <source media="(min-width:45em)" srcset={bgDesktopOpt.src} />
+      <source srcset={bgMobileOpt.src} />
+      <img src={bgDesktopOpt.src} alt="" />
+    </picture>
+  </div>
+
+  <div class="container" data-type="wide">
+    <div class="inner">
+      <Icon name="logo" />
+      <PrimaryNavigation />
+    </div>
+
+    <style lang="scss">
+      @use "../sass/abstracts" as *;
+
+      header {
+        display: grid;
+        grid-template-areas: "stack";
+
+        > * {
+          grid-area: stack;
+        }
+      }
+
+      .inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block-start: 2rem;
+      }
+
+      [data-icon] {
+        width: 124px;
+        height: 24px;
+
+        @include mq(medium) {
+          width: 170px;
+          height: 33px;
+        }
+      }
+    </style>
+  </div>
+</header>

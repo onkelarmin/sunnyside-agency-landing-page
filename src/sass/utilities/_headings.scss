@@ -1,0 +1,24 @@
+@use '../abstracts/' as *;
+
+.heading-1 {
+  @include heading(
+    $heading-1-font-size,
+    $heading-1-color
+    );
+    text-transform: uppercase;
+    letter-spacing: 0.546875rem;
+}
+.heading-2 {
+  @include heading(
+    $heading-2-font-size,
+    $heading-2-color
+  );
+  letter-spacing: 0.018125rem;
+}
+.heading-3 {
+  @include heading(
+    $heading-3-font-size,
+    $heading-3-color
+  );
+  letter-spacing: 0.0125rem;
+}

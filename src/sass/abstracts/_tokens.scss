@@ -1,0 +1,98 @@
+@use 'colors' as *;
+@use 'typography' as *;
+@use 'sizes' as *;
+
+$active-theme: $light;
+$enable-media-query-dark-mode: false;
+
+// Contextual
+$color-text-default: $color-neutral-400;
+$color-background-default: $color-neutral-000;
+$color-text-interactive-default: $color-neutral-900;
+$color-text-interactive-hover: $color-neutral-900;
+
+// set to 0 to disable
+$letter-spacing-loose: 0;
+
+$border-radius-1: $size-2;
+$border-radius-2: $size-4;
+
+$box-shadow-1: 0px 6px 5px rgb(0, 0, 0, 0.012),
+  0px 22px 18px rgb(0, 0, 0, 0.018), 0px 100px 80px rgb(0, 0, 0, 0.03);
+
+$box-shadow-2: 0px 6px 5px rgb(0, 0, 0, 0.016),
+  0px 22px 18px rgb(0, 0, 0, 0.024), 0px 100px 80px rgb(0, 0, 0, 0.04);
+
+$box-shadow-3: 0px 6px 5px rgb(0, 0, 0, 0.02), 0px 22px 18px rgb(0, 0, 0, 0.03),
+  0px 100px 80px rgb(0, 0, 0, 0.05);
+
+$box-shadow-4: 0px 6px 5px rgb(0, 0, 0, 0.03), 0px 22px 18px rgb(0, 0, 0, 0.042),
+  0px 100px 80px rgb(0, 0, 0, 0.07);
+
+$box-shadow-5: 0px 6px 5px rgb(0, 0, 0, 0.04), 0px 22px 18px rgb(0, 0, 0, 0.06),
+  0px 100px 80px rgb(0, 0, 0, 0.1);
+
+// body
+$body-font-family: $font-family-base;
+$body-font-size: $font-size-400;
+$body-line-height: 1.66;
+$body-font-weight: $font-weight-default;
+$body-text-color: $color-text-default;
+$body-background-color: $color-background-default;
+
+$link-color: $color-text-interactive-default;
+$link-color-hover: $color-text-interactive-hover;
+
+$heading-font-family: $font-family-accent;
+$heading-color-default: $color-neutral-900;
+$heading-font-weight: $font-weight-black;
+$heading-letter-spacing: $letter-spacing-loose;
+$heading-line-height: auto;
+$heading-text-transform: none;
+
+$heading-1-font-size: $font-size-900;
+$heading-1-color: $color-neutral-000;
+$heading-2-font-size: $font-size-700;
+$heading-2-color: $heading-color-default;
+$heading-3-font-size: $font-size-600;
+$heading-3-color: $heading-color-default;
+
+// layout
+$grid-gap: $size-6;
+$flex-group-gap: $size-4;
+
+$section-padding-block-small-screens: $size-10;
+$section-padding-block-large-screens: $size-9;
+
+$flow-space-small-screens: 1em;
+$flow-space-large-screens: 1.5em;
+
+$container-min-margin-inline-small-screens: $size-6;
+$container-min-margin-inline-medium-screens: $size-9;
+$container-max-width: 69.375rem;
+$container-max-width-narrow: 47rem;
+$container-max-width-wide: 84.5rem;
+
+// buttons
+// $button-font-family: $body-font-family;
+// $button-font-size: $font-size-400;
+// $button-font-weight: $font-weight-bold;
+// $button-text-transform: uppercase;
+// $button-padding: 0.75em 2em;
+// $button-border: 0;
+// $button-border-radius: $border-radius-1;
+
+// $button-primary-color: $color-neutral-100;
+// $button-primary-background: $color-primary-700;
+// $button-primary-color-hover: $color-neutral-100;
+// $button-primary-background-hover: $color-primary-800;
+// $button-accent-color: $color-neutral-100;
+// $button-accent-background: $color-accent-400;
+// $button-accent-color-hover: $color-neutral-100;
+// $button-accent-background-hover: $color-accent-500;
+
+// animations
+$animation-transition-default: opacity 400ms linear, transform 500ms ease-in;
+$animation-slide-in-transition: $animation-transition-default;
+$animation-slide-in-offset: $size-12;
+$animation-fade-in-transition: $animation-transition-default;
