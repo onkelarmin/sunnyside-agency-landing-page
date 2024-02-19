@@ -1,0 +1,16 @@
+---
+type Props = {
+  href: string
+  classes?: string
+}
+
+const { href, classes, ...rest } = Astro.props
+---
+
+<a href={href} class:list={["btn", classes]} {...rest}>
+  <slot />
+</a>
+
+<style lang="scss">
+  @use "../sass/abstracts" as *;
+</style>

@@ -74,18 +74,18 @@ $container-max-width-narrow: 47rem;
 $container-max-width-wide: 84.5rem;
 
 // buttons
-// $button-font-family: $body-font-family;
-// $button-font-size: $font-size-400;
-// $button-font-weight: $font-weight-bold;
-// $button-text-transform: uppercase;
-// $button-padding: 0.75em 2em;
-// $button-border: 0;
-// $button-border-radius: $border-radius-1;
+$button-font-family: $body-font-family;
+$button-font-size: $font-size-400;
+$button-font-weight: $font-weight-default;
+$button-text-transform: uppercase;
+$button-padding: 1em 2em;
+$button-border: 0;
+$button-border-radius: 100vw;
 
-// $button-primary-color: $color-neutral-100;
-// $button-primary-background: $color-primary-700;
-// $button-primary-color-hover: $color-neutral-100;
-// $button-primary-background-hover: $color-primary-800;
+$button-primary-color: $color-neutral-900;
+$button-primary-background: $color-neutral-000;
+$button-primary-color-hover: $color-neutral-000;
+$button-primary-background-hover: $color-neutral-900;
 // $button-accent-color: $color-neutral-100;
 // $button-accent-background: $color-accent-400;
 // $button-accent-color-hover: $color-neutral-100;
@@ -96,3 +96,4 @@ $animation-transition-default: opacity 400ms linear, transform 500ms ease-in;
 $animation-slide-in-transition: $animation-transition-default;
 $animation-slide-in-offset: $size-12;
 $animation-fade-in-transition: $animation-transition-default;
+
