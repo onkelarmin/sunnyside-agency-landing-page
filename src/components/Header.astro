@@ -28,6 +28,10 @@ const bgDesktopOpt = await getImage({ src: bgDesktop, format: "webp" })
       <Icon name="logo" />
       <PrimaryNavigation />
     </div>
+    <div class="hero">
+      <h1 class="heading-1">We are creatives</h1>
+      <Icon name="arrow-down" width={30} height={107} />
+    </div>
 
     <style lang="scss">
       @use "../sass/abstracts" as *;
@@ -48,13 +52,26 @@ const bgDesktopOpt = await getImage({ src: bgDesktop, format: "webp" })
         margin-block-start: 2rem;
       }
 
-      [data-icon] {
+      [data-icon="logo"] {
         width: 124px;
         height: 24px;
 
         @include mq(medium) {
           width: 170px;
           height: 33px;
+        }
+      }
+
+      .hero {
+        text-align: center;
+
+        h1 {
+          margin-block: 5.5rem 3.25rem;
+
+          @include mq(medium) {
+            margin-block: clamp(4rem, -11rem + 33.3333vi, 6.5rem)
+              clamp(1rem, -17rem + 40vi, 6rem);
+          }
         }
       }
     </style>

@@ -1,0 +1,67 @@
+---
+// Component imports
+import { getImage } from "astro:assets"
+
+// Image imports
+import transformDesktop from "../images/desktop/transform.jpg"
+import transformMobile from "../images/mobile/transform.jpg"
+import standOutDesktop from "../images/desktop/stand-out.jpg"
+import standOutMobile from "../images/mobile/stand-out.jpg"
+import graphicDesignDesktop from "../images/desktop/graphic-design.jpg"
+import graphicDesignMobile from "../images/mobile/graphic-design.jpg"
+import photographyDesktop from "../images/desktop/photography.jpg"
+import photographyMobile from "../images/mobile/photography.jpg"
+
+const transformDesktopOpt = await getImage({
+  src: transformDesktop,
+  format: "webp",
+  quality: "max",
+})
+const transformMobileOpt = await getImage({
+  src: transformMobile,
+  format: "webp",
+  quality: "max",
+})
+const standOutDesktopOpt = await getImage({
+  src: standOutDesktop,
+  format: "webp",
+  quality: "max",
+})
+const standOutMobileOpt = await getImage({
+  src: standOutMobile,
+  format: "webp",
+  quality: "max",
+})
+const graphicDesignDesktopOpt = await getImage({
+  src: graphicDesignDesktop,
+  format: "webp",
+})
+const graphicDesignMobileOpt = await getImage({
+  src: graphicDesignMobile,
+  format: "webp",
+})
+const photographyDesktopOpt = await getImage({
+  src: photographyDesktop,
+  format: "webp",
+})
+const photographyMobileOpt = await getImage({
+  src: photographyMobile,
+  format: "webp",
+})
+---
+
+<section>
+  <picture>
+    <source media="(min-width: 45em)" srcset={transformDesktopOpt.src} />
+    <source srcset={transformMobileOpt.src} />
+    <img src={transformDesktopOpt.src} alt="white egg on yellow background" />
+  </picture>
+  <div>
+    <h2 class="heading-2">Transform your brand</h2>
+    <p>
+      We are a full-service creative agency specializing in helping brands grow
+      fast. Engage your clients through compelling visuals that do most of the
+      marketing for you.
+    </p>
+  </div>
+</section>
