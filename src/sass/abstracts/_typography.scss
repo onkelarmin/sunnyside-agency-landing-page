@@ -6,10 +6,12 @@ $font-sizes: (
     '900': 2.5rem,
     '700': 2rem,
     '600': 1.75rem,
-    '500': 1rem,
+    '500': 1rem, // Testimonial heading
     '450': 1.25rem, // Navigation items
     '400': 1.125rem,
-    '300': 0.875rem,
+    '350': 1rem, // Graphic / Photography body
+    '300': 0.9375rem, // Links
+    '200': 0.875rem,
    ),
   'medium': (
     '900': 3.5rem,
@@ -19,7 +21,9 @@ $font-sizes: (
   ),
 );
 
+$font-size-200: var(--fs-200);
 $font-size-300: var(--fs-300);
+$font-size-350: var(--fs-350);
 $font-size-400: var(--fs-400);
 $font-size-450: var(--fs-450);
 $font-size-500: var(--fs-500);

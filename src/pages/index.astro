@@ -1,12 +1,17 @@
 ---
+// Layout import
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+// Component imports
 import FeaturesGrid from "../components/FeaturesGrid.astro"
 import Header from "../components/Header.astro"
-import BaseLayout from "../layouts/BaseLayout.astro"
+import Testimonials from "../components/Testimonials.astro"
 ---
 
 <BaseLayout title="Frontend Mentor | Sunnyside agency landing page">
   <Header />
   <main>
     <FeaturesGrid />
+    <Testimonials />
   </main>
 </BaseLayout>

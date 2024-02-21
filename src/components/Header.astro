@@ -9,18 +9,17 @@ import bgDesktop from "../images/desktop/header.jpg"
 
 // Component imports
 import PrimaryNavigation from "./PrimaryNavigation.astro"
-
-const bgMobileOpt = await getImage({ src: bgMobile, format: "webp" })
-const bgDesktopOpt = await getImage({ src: bgDesktop, format: "webp" })
+import Picture from "./Picture.astro"
 ---
 
 <header>
   <div class="bg">
-    <picture>
-      <source media="(min-width:45em)" srcset={bgDesktopOpt.src} />
-      <source srcset={bgMobileOpt.src} />
-      <img src={bgDesktopOpt.src} alt="" />
-    </picture>
+    <Picture
+      imageDesktop={bgDesktop}
+      imageMobile={bgMobile}
+      breakpoint="45em"
+      altText=""
+    />
   </div>
 
   <div class="container" data-type="wide">
@@ -32,48 +31,50 @@ const bgDesktopOpt = await getImage({ src: bgDesktop, format: "webp" })
       <h1 class="heading-1">We are creatives</h1>
       <Icon name="arrow-down" width={30} height={107} />
     </div>
-
-    <style lang="scss">
-      @use "../sass/abstracts" as *;
-
-      header {
-        display: grid;
-        grid-template-areas: "stack";
-
-        > * {
-          grid-area: stack;
-        }
-      }
-
-      .inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-block-start: 2rem;
-      }
-
-      [data-icon="logo"] {
-        width: 124px;
-        height: 24px;
-
-        @include mq(medium) {
-          width: 170px;
-          height: 33px;
-        }
-      }
-
-      .hero {
-        text-align: center;
-
-        h1 {
-          margin-block: 5.5rem 3.25rem;
-
-          @include mq(medium) {
-            margin-block: clamp(4rem, -11rem + 33.3333vi, 6.5rem)
-              clamp(1rem, -17rem + 40vi, 6rem);
-          }
-        }
-      }
-    </style>
   </div>
 </header>
+
+<!-- Styles -->
+
+<style lang="scss">
+  @use "../sass/abstracts" as *;
+
+  header {
+    display: grid;
+    grid-template-areas: "stack";
+
+    > * {
+      grid-area: stack;
+    }
+  }
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-start: 2rem;
+  }
+
+  [data-icon="logo"] {
+    width: 124px;
+    height: 24px;
+
+    @include mq(medium) {
+      width: 170px;
+      height: 33px;
+    }
+  }
+
+  .hero {
+    text-align: center;
+
+    h1 {
+      margin-block: 5.5rem 3.25rem;
+
+      @include mq(medium) {
+        margin-block: clamp(4rem, -11rem + 33.3333vi, 6.5rem)
+          clamp(1rem, -17rem + 40vi, 6rem);
+      }
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+// Component imports
+import Testinomial from "./Testinomial.astro"
+
+// Image imports
+import emily from "../images/desktop/emily.jpg"
+import jennie from "../images/desktop/jennie.jpg"
+import thomas from "../images/desktop/thomas.jpg"
+---
+
+<section aria-labelledby="testimonials-title" class="container">
+  <h2 class="heading-4" id="testimonials-title">Client Testimonials</h2>
+  <div class="grid">
+    <Testinomial
+      img={emily}
+      body="We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit."
+      name="Emily R."
+      role="Marketing Director"
+    />
+    <Testinomial
+      img={thomas}
+      body="Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience."
+      name="Thomas S."
+      role="Chief Operating Officer"
+    />
+    <Testinomial
+      img={jennie}
+      body="Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!"
+      name="Jennie F."
+      role="Business Owner"
+    />
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../sass/abstracts" as *;
+
+  section {
+    text-align: center;
+    padding-block: 4rem 5.375rem;
+
+    .grid {
+      display: grid;
+      gap: 4rem;
+      margin-block-start: 4rem;
+    }
+
+    @include mq(medium) {
+      padding-block: 10rem;
+
+      .grid {
+        margin-block-start: 5rem;
+      }
+    }
+  }
+</style>

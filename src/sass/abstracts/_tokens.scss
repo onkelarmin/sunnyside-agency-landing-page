@@ -56,6 +56,8 @@ $heading-2-font-size: $font-size-700;
 $heading-2-color: $heading-color-default;
 $heading-3-font-size: $font-size-600;
 $heading-3-color: $heading-color-default;
+$heading-4-font-size: $font-size-500;
+$heading-4-color: $color-neutral-300;
 
 // layout
 $grid-gap: $size-6;
@@ -73,23 +75,6 @@ $container-max-width: 69.375rem;
 $container-max-width-narrow: 47rem;
 $container-max-width-wide: 84.5rem;
 
-// buttons
-$button-font-family: $body-font-family;
-$button-font-size: $font-size-400;
-$button-font-weight: $font-weight-default;
-$button-text-transform: uppercase;
-$button-padding: 1em 2em;
-$button-border: 0;
-$button-border-radius: 100vw;
-
-$button-primary-color: $color-neutral-900;
-$button-primary-background: $color-neutral-000;
-$button-primary-color-hover: $color-neutral-000;
-$button-primary-background-hover: $color-neutral-900;
-// $button-accent-color: $color-neutral-100;
-// $button-accent-background: $color-accent-400;
-// $button-accent-color-hover: $color-neutral-100;
-// $button-accent-background-hover: $color-accent-500;
 
 // animations
 $animation-transition-default: opacity 400ms linear, transform 500ms ease-in;

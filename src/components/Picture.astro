@@ -1,0 +1,51 @@
+---
+// Library imports
+import { getImage } from "astro:assets"
+
+// Type imports
+import type { ImageMetadata } from "astro"
+
+type Props = {
+  imageDesktop: ImageMetadata
+  imageMobile: ImageMetadata
+  format?: string
+  quality?: string
+  altText: string
+  breakpoint: string
+}
+
+const {
+  imageDesktop,
+  imageMobile,
+  format = "webp",
+  quality,
+  altText,
+  breakpoint,
+} = Astro.props
+
+const imageDesktopOpt = await getImage({
+  src: imageDesktop,
+  format,
+  quality,
+})
+
+const imageMobileOpt = await getImage({
+  src: imageMobile,
+  format,
+  quality,
+})
+---
+
+<picture>
+  <source media=`(min-width: ${breakpoint})` srcset={imageDesktopOpt.src} />
+  <source srcset={imageMobileOpt.src} />
+  <img src="" alt={altText} />
+</picture>
+
+<style lang="scss">
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+</style>

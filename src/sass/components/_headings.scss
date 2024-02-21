@@ -22,3 +22,12 @@
   );
   letter-spacing: 0.0125rem;
 }
+
+.heading-4 {
+  @include heading(
+    $heading-4-font-size,
+    $heading-4-color
+  );
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+}

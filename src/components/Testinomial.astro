@@ -1,0 +1,28 @@
+---
+// Library imports
+import { Image } from "astro:assets"
+
+// Type imports
+import type { imageMetadata } from "astro/assets/utils"
+
+type Props = {
+  img: ImageMetadata
+  body: string
+  name: string
+  role: string
+}
+
+const { img, body, name, role } = Astro.props
+---
+
+<article>
+  <Image src={img} alt={name} width={72} height={72} class="round" />
+  <p>{body}</p>
+  <p>{name}</p>
+  <p>{role}</p>
+</article>
+
+<style lang="scss">
+  article {
+  }
+</style>
