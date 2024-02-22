@@ -39,7 +39,7 @@ const imageMobileOpt = await getImage({
 <picture>
   <source media=`(min-width: ${breakpoint})` srcset={imageDesktopOpt.src} />
   <source srcset={imageMobileOpt.src} />
-  <img src="" alt={altText} />
+  <img src={imageDesktop.src} alt={altText} />
 </picture>
 
 <style lang="scss">
