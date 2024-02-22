@@ -1,0 +1,93 @@
+---
+import { Icon } from "astro-icon/components"
+---
+
+<footer>
+  <Icon name="logo" width={170} height={33} />
+  <ul class="links">
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Projects</a></li>
+  </ul>
+  <ul class="social">
+    <li>
+      <a href="#"
+        ><Icon name="facebook" size={20} /><span class="visually-hidden"
+          >Facebook</span
+        ></a
+      >
+    </li>
+    <li>
+      <a href="#"
+        ><Icon name="instagram" size={20} /><span class="visually-hidden"
+          >Instagram</span
+        ></a
+      >
+    </li>
+    <li>
+      <a href="#"
+        ><Icon name="twitter" size={20} /><span class="visually-hidden"
+          >Twitter</span
+        ></a
+      >
+    </li>
+    <li>
+      <a href="#"
+        ><Icon name="pinterest" size={20} /><span class="visually-hidden"
+          >Pinterest</span
+        ></a
+      >
+    </li>
+  </ul>
+</footer>
+
+<style lang="scss">
+  @use "../sass/abstracts" as *;
+
+  footer {
+    display: grid;
+    justify-items: center;
+    background-color: $color-green-200;
+    padding: 4rem 2.5rem 5rem 2.5rem;
+
+    [data-icon="logo"] {
+      color: $color-green-600;
+    }
+
+    .links {
+      display: flex;
+      gap: 3.5rem;
+      list-style: none;
+      margin-block-start: 2.5rem;
+
+      a {
+        color: $color-green-500;
+        text-decoration: none;
+        transition: color 200ms ease-out;
+
+        &:is(:hover, :focus-visible) {
+          color: $color-neutral-000;
+        }
+      }
+    }
+
+    .social {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+      margin-block-start: 5.5rem;
+
+      a {
+        color: $color-green-600;
+
+        &:is(:hover, :focus-visible) {
+          color: $color-neutral-000;
+        }
+      }
+    }
+
+    @include mq(medium) {
+      padding-block: 4.5rem;
+    }
+  }
+</style>

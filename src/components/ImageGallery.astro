@@ -1,0 +1,56 @@
+---
+// Component imports
+import Picture from "./Picture.astro"
+
+// Image imports
+import coneDesktop from "../images/desktop/gallery-cone.jpg"
+import coneMobile from "../images/mobile/gallery-cone.jpg"
+import milkbottlesDesktop from "../images/desktop/gallery-milkbottles.jpg"
+import milkbottlesMobile from "../images/mobile/gallery-milkbottles.jpg"
+import orangeDesktop from "../images/desktop/gallery-orange.jpg"
+import orangeMobile from "../images/mobile/gallery-orange.jpg"
+import sugarcubesDesktop from "../images/desktop/gallery-sugarcubes.jpg"
+import sugarcubesMobile from "../images/mobile/gallery-sugarcubes.jpg"
+
+const imageBreakpoint = "45em"
+---
+
+<section>
+  <Picture
+    imageDesktop={milkbottlesDesktop}
+    imageMobile={milkbottlesMobile}
+    breakpoint={imageBreakpoint}
+    altText="milkbottles with red lids on blue background with clouds"
+  />
+  <Picture
+    imageDesktop={orangeDesktop}
+    imageMobile={orangeMobile}
+    breakpoint={imageBreakpoint}
+    altText="cut orange in the middle of a plate on orage background"
+  />
+  <Picture
+    imageDesktop={coneDesktop}
+    imageMobile={coneMobile}
+    breakpoint={imageBreakpoint}
+    altText="empty icecream cone on blue background"
+  />
+  <Picture
+    imageDesktop={sugarcubesDesktop}
+    imageMobile={sugarcubesMobile}
+    breakpoint={imageBreakpoint}
+    altText="stacked sugarcubes on red background"
+  />
+</section>
+
+<style lang="scss">
+  @use "../sass/abstracts" as *;
+
+  section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mq(medium) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

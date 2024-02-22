@@ -17,12 +17,40 @@ const { img, body, name, role } = Astro.props
 
 <article>
   <Image src={img} alt={name} width={72} height={72} class="round" />
-  <p>{body}</p>
-  <p>{name}</p>
-  <p>{role}</p>
+  <p class="body">{body}</p>
+  <p class="name">{name}</p>
+  <p class="role">{role}</p>
 </article>
 
 <style lang="scss">
+  @use "../sass/abstracts" as *;
+
   article {
+    .body {
+      max-width: 50ch;
+      margin-block-start: 2rem;
+      margin-inline: auto;
+
+      @include mq(medium) {
+        margin-block-start: 3.625rem;
+      }
+    }
+
+    .name {
+      font-family: $font-family-accent;
+      font-weight: $font-weight-black;
+      color: $color-neutral-900;
+      margin-block-start: 2rem;
+
+      @include mq(medium) {
+        margin-block-start: 4.25rem;
+      }
+    }
+
+    .role {
+      font-size: $font-size-200;
+      color: $color-neutral-300;
+      margin-block-start: 0.5rem;
+    }
   }
 </style>
