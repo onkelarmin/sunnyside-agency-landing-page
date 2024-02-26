@@ -27,198 +27,196 @@ import Link from "./Link.astro"
       <li><a href="#">Projects</a></li>
       <li><a href="#" class="contact-btn">Contact</a></li>
     </ul>
-
-    <style lang="scss">
-      @use "../sass/abstracts" as *;
-      @use "sass:color";
-
-      .primary-nav {
-        &__list {
-          display: flex;
-          align-items: center;
-          gap: 3rem;
-
-          list-style: none;
-
-          a:not(.contact-btn) {
-            position: relative;
-            font-size: $font-size-450;
-            color: $color-neutral-000;
-            text-decoration: none;
-
-            &::after {
-              content: "";
-              position: absolute;
-              left: 0;
-              bottom: 0;
-              width: 100%;
-              height: 3px;
-              background-color: currentColor;
-              border-radius: 100vw;
-              transform: translateY(0.35rem) scaleX(0);
-              transform-origin: left;
-              transition: transform 250ms ease-in;
-            }
-
-            &:focus {
-              outline: 0px solid transparent;
-            }
-
-            &:is(:hover, :focus-visible)::after {
-              transform: translateY(0.35rem) scaleX(1);
-            }
-          }
-
-          .contact-btn {
-            font-family: $font-family-accent;
-            font-size: 0.9375rem;
-            text-transform: uppercase;
-            font-weight: $font-weight-bold;
-            color: $color-neutral-900;
-            background-color: $color-neutral-000;
-            text-decoration: none;
-            padding: 1em 2em;
-            border-radius: 100vw;
-            transition: 150ms ease-in;
-
-            &:is(:hover, :focus-visible) {
-              background-color: color.scale(white, $alpha: -75%);
-              color: $color-neutral-000;
-            }
-          }
-        }
-
-        &__toggle {
-          display: grid;
-          place-items: center;
-          background: none;
-          border: none;
-          transition: opacity 250ms ease-in;
-
-          @include mq(medium) {
-            display: none;
-          }
-        }
-
-        &__toggle[aria-expanded="true"] {
-          opacity: 0.5;
-        }
-
-        &__toggle[aria-expanded="true"] + .primary-nav__menu {
-          translate: 0;
-        }
-      }
-
-      // Mobile
-
-      @include mq(medium, max) {
-        .primary-nav {
-          &__menu {
-            position: fixed;
-            top: 6.625rem;
-            left: $container-min-margin-inline-small-screens;
-            right: $container-min-margin-inline-small-screens;
-            background-color: $color-neutral-000;
-            padding-block: 2.5rem;
-            translate: 100vw 0;
-            transition: translate 0.5s ease-in-out;
-
-            &::after {
-              content: "";
-              position: absolute;
-              top: 0;
-              right: 0;
-              width: 0;
-              aspect-ratio: 1;
-              border-bottom: 1.25rem solid $color-neutral-000;
-              border-left: 1.25rem solid transparent;
-              transform: translateY(calc(-100% + 1px));
-            }
-          }
-
-          &__list {
-            flex-direction: column;
-            gap: 2rem;
-            text-align: center;
-          }
-
-          a:not(.contact-btn) {
-            color: $color-neutral-400;
-          }
-
-          .contact-btn {
-            background-color: $color-yellow-400;
-
-            &:is(:hover, :focus-visible) {
-              background-color: color.scale(hsl(51 100% 49%), $alpha: -75%);
-              color: $color-neutral-900;
-            }
-          }
-        }
-      }
-    </style>
-
-    <script>
-      // Import body-scroll-lock
-      import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
-
-      // Variables
-      const btnToggle = document.querySelector(
-        "#btnToggle"
-      )! as HTMLButtonElement
-      const primaryNavMenu = document.querySelector(
-        ".primary-nav__menu"
-      )! as HTMLElement
-      const main = document.querySelector("main")!
-      const body = document.querySelector("body")!
-      const media = window.matchMedia("(width < 45em)")
-      const isMobile = media.matches
-
-      // Functions
-      function setupPrimaryNav(isMobile: boolean) {
-        if (isMobile) {
-          // is mobile
-          primaryNavMenu.setAttribute("inert", "")
-          primaryNavMenu.style.transition = "none"
-        } else {
-          // is tablet/desktop
-          primaryNavMenu.removeAttribute("inert")
-        }
-      }
-
-      function openMobileMenu() {
-        btnToggle.setAttribute("aria-expanded", "true")
-        primaryNavMenu.removeAttribute("inert")
-        primaryNavMenu.removeAttribute("style")
-        main.setAttribute("inert", "")
-        disableBodyScroll(body)
-        btnToggle.focus()
-      }
-      function closeMobileMenu() {
-        btnToggle.setAttribute("aria-expanded", "false")
-        primaryNavMenu.setAttribute("inert", "")
-        main.removeAttribute("inert")
-        enableBodyScroll(body)
-        btnToggle.focus()
-
-        setTimeout(() => {
-          primaryNavMenu.style.transition = "none"
-        }, 500)
-      }
-
-      setupPrimaryNav(isMobile)
-
-      // EventListeners
-      btnToggle.addEventListener("click", () => {
-        if (btnToggle.getAttribute("aria-expanded") === "false") {
-          openMobileMenu()
-        } else {
-          closeMobileMenu()
-        }
-      })
-      media.addEventListener("change", (e) => {
-        setupPrimaryNav(e.matches)
-      })
-    </script>
   </div>
 </nav>
+
+<style lang="scss">
+  @use "../sass/abstracts" as *;
+  @use "sass:color";
+
+  .primary-nav {
+    &__list {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+      list-style: none;
+
+      a:not(.contact-btn) {
+        position: relative;
+        font-size: $font-size-450;
+        color: $color-neutral-000;
+        text-decoration: none;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 3px;
+          background-color: currentColor;
+          border-radius: 100vw;
+          transform: translateY(0.35rem) scaleX(0);
+          transform-origin: left;
+          transition: transform 250ms ease-in;
+        }
+
+        &:focus {
+          outline: 0px solid transparent;
+        }
+
+        &:is(:hover, :focus-visible)::after {
+          transform: translateY(0.35rem) scaleX(1);
+        }
+      }
+
+      .contact-btn {
+        font-family: $font-family-accent;
+        font-size: 0.9375rem;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+        color: $color-neutral-900;
+        background-color: $color-neutral-000;
+        text-decoration: none;
+        padding: 1em 2em;
+        border-radius: 100vw;
+        transition: 150ms ease-in;
+
+        &:is(:hover, :focus-visible) {
+          background-color: color.scale(white, $alpha: -75%);
+          color: $color-neutral-000;
+        }
+      }
+    }
+
+    &__toggle {
+      display: grid;
+      place-items: center;
+      background: none;
+      border: none;
+      transition: opacity 250ms ease-in;
+
+      @include mq(medium) {
+        display: none;
+      }
+    }
+
+    &__toggle[aria-expanded="true"] {
+      opacity: 0.5;
+    }
+
+    &__toggle[aria-expanded="true"] + .primary-nav__menu {
+      translate: 0;
+    }
+  }
+
+  // Mobile
+
+  @include mq(medium, max) {
+    .primary-nav {
+      &__menu {
+        position: fixed;
+        top: 6.625rem;
+        left: $container-min-margin-inline-small-screens;
+        right: $container-min-margin-inline-small-screens;
+        background-color: $color-neutral-000;
+        padding-block: 2.5rem;
+        translate: 100vw 0;
+        transition: translate 0.5s ease-in-out;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 0;
+          aspect-ratio: 1;
+          border-bottom: 1.25rem solid $color-neutral-000;
+          border-left: 1.25rem solid transparent;
+          transform: translateY(calc(-100% + 1px));
+        }
+      }
+
+      &__list {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      a:not(.contact-btn) {
+        color: $color-neutral-400;
+      }
+
+      .contact-btn {
+        background-color: $color-yellow-400;
+
+        &:is(:hover, :focus-visible) {
+          background-color: color.scale(hsl(51 100% 49%), $alpha: -75%);
+          color: $color-neutral-900;
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  // Import body-scroll-lock
+  import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+
+  // Variables
+  const btnToggle = document.querySelector("#btnToggle")! as HTMLButtonElement
+  const primaryNavMenu = document.querySelector(
+    ".primary-nav__menu"
+  )! as HTMLElement
+  const main = document.querySelector("main")!
+  const body = document.querySelector("body")!
+  const media = window.matchMedia("(width < 45em)")
+  const isMobile = media.matches
+
+  // Functions
+  function setupPrimaryNav(isMobile: boolean) {
+    if (isMobile) {
+      // is mobile
+      primaryNavMenu.setAttribute("inert", "")
+      primaryNavMenu.style.transition = "none"
+    } else {
+      // is tablet/desktop
+      primaryNavMenu.removeAttribute("inert")
+    }
+  }
+
+  function openMobileMenu() {
+    btnToggle.setAttribute("aria-expanded", "true")
+    primaryNavMenu.removeAttribute("inert")
+    primaryNavMenu.removeAttribute("style")
+    main.setAttribute("inert", "")
+    disableBodyScroll(body)
+    btnToggle.focus()
+  }
+  function closeMobileMenu() {
+    btnToggle.setAttribute("aria-expanded", "false")
+    primaryNavMenu.setAttribute("inert", "")
+    main.removeAttribute("inert")
+    enableBodyScroll(body)
+    btnToggle.focus()
+
+    setTimeout(() => {
+      primaryNavMenu.style.transition = "none"
+    }, 500)
+  }
+
+  setupPrimaryNav(isMobile)
+
+  // EventListeners
+  btnToggle.addEventListener("click", () => {
+    if (btnToggle.getAttribute("aria-expanded") === "false") {
+      openMobileMenu()
+    } else {
+      closeMobileMenu()
+    }
+  })
+  media.addEventListener("change", (e) => {
+    setupPrimaryNav(e.matches)
+  })
+</script>
